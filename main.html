@@ -39,9 +39,10 @@
 
 		function callAPI(){
 		var obj;
-		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
+		// const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
+	        console.log(district_id);
 		var raw = JSON.stringify({"district":district_id});
 		// create a JSON object with parameters for API call and store in a variable
 		var requestOptions = {
@@ -56,6 +57,7 @@
 		.then(() => show(obj));
         }
 		function show(data) {
+		console.log(data);
                 let tab = 
                     `<tr>
                         <th>district_id</th>
