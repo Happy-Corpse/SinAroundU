@@ -37,12 +37,12 @@
         }
 		
 
-		function callAPI(){
+	function callAPI(){
 		var obj;
 		// const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-	        console.log(district_id);
+		console.log(district_id);
 		var raw = JSON.stringify({"district":district_id});
 		// create a JSON object with parameters for API call and store in a variable
 		var requestOptions = {
@@ -56,7 +56,7 @@
 		.then(result => obj = JSON.parse(result).body)
 		.then(() => show(obj));
         }
-		function show(data) {
+	function show(data) {
 		console.log(data);
                 let tab = 
                     `<tr>
@@ -265,13 +265,6 @@
 	<div id="maindata">
 		<div id="map"></div>
 		<div class="row align-items-md-stretch">
-			<!-- <div class="col-md-6">
-				<div class="h-100 p-5 text-white bg-dark rounded-3">
-					<h2>Change the background</h2>
-					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
-						Then, mix and match with additional component themes and more.</p>
-				</div>
-			</div>
 			<div class="col-md-6">
 				<div class="h-100 p-5 text-white bg-dark rounded-3">
 					<h2>Change the background</h2>
@@ -285,7 +278,14 @@
 					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
 						Then, mix and match with additional component themes and more.</p>
 				</div>
-			</div> -->
+			</div>
+			<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>Change the background</h2>
+					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+						Then, mix and match with additional component themes and more.</p>
+				</div>
+			</div>
 			<div class="col-md-6">
 				<div class="h-100 p-5 text-white bg-dark rounded-3">
 					<h2>Test 1</h2>
@@ -330,13 +330,13 @@
 
 	function initMap() {
 		// content to be displayed by click and location
-		// var locations = [
-		// 	['Bondi Beach', -33.890542, 151.274856],
-		// 	['Coogee Beach', -33.923036, 151.259052],
-		// 	['Cronulla Beach', -34.028249, 151.157507],
-		// 	['Manly Beach', -33.80010128657071, 151.28747820854187],
-		// 	['Maroubra Beach', -33.950198, 151.259302]
-		// ];
+		var locations = [
+			['Bondi Beach', -33.890542, 151.274856],
+			['Coogee Beach', -33.923036, 151.259052],
+			['Cronulla Beach', -34.028249, 151.157507],
+			['Manly Beach', -33.80010128657071, 151.28747820854187],
+			['Maroubra Beach', -33.950198, 151.259302]
+		];
 
 		// center of map shown
 		var map = new google.maps.Map(document.getElementById('map'), {
