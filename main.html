@@ -29,10 +29,10 @@
         function init() {
             var username = ReadCookie("username");
             if(username && username.length>0) {
-                $("msg2").innerHTML = "<h1>District_id: " + username + "!</h1>";
+                $("msg").innerHTML = "<h1>District_id: " + username + "!</h1>";
             } else {
                 username = 01;
-                $("msg2").innerHTML = "<h1>District_id: " + username + "!</h1>";
+                $("msg").innerHTML = "<h1>District_id: " + username + "!</h1>";
             }
         }
 		
@@ -70,7 +70,7 @@
                 <td>${data} </td>`
  
                 // Setting innerHTML as tab variable
-                document.getElementById("msg").innerHTML = tab;
+                document.getElementById("msg2").innerHTML = tab;
             }
     </script>
 </head>
@@ -290,10 +290,10 @@
 				<div class="h-100 p-5 text-white bg-dark rounded-3">
 					<h2>Test 1</h2>
 					<body onload="callAPI()">
-						<div id="msg">Pending . . .</div>
+						<div id="msg2">Pending . . .</div>
 					<h2>Test 2</h2>
 					<body onload="init()">
-						<div id="msg2">Pending . . .</div>
+						<div id="msg">Pending . . .</div>
 				</div>
 			</div>
 		</div>
