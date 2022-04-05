@@ -22,27 +22,12 @@
             }
             return ""
         }
-        function $(id) {
-            return document.getElementById(id);
-        }
-
-        function init() {
-            var username = ReadCookie("username");
-            if(username && username.length>0) {
-                $("msg").innerHTML = "<h1>District_id: " + username + "!</h1>";
-            } else {
-                username = 01;
-                $("msg").innerHTML = "<h1>District_id: " + username + "!</h1>";
-            }
-        }
-		
 
 	function callAPI(){
 		var obj;
 		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-		console.log(district_id);
 		var raw = JSON.stringify({"district":district_id});
 		// create a JSON object with parameters for API call and store in a variable
 		var requestOptions = {
@@ -57,7 +42,6 @@
 		.then(() => show(obj));
         }
 	function show(data) {
-		console.log(data);
                 let tab = 
                     `<tr>
                         <th>district_id</th>
@@ -291,9 +275,6 @@
 					<h2>Test 1</h2>
 					<body onload="callAPI()">
 						<div id="msg2">Pending . . .</div>
-					<h2>Test 2</h2>
-					<body onload="init()">
-						<div id="msg">Pending . . .</div>
 				</div>
 			</div>
 		</div>
