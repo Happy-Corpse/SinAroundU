@@ -28,9 +28,11 @@
 		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-		var facility = document.getElementById(fac).value;
-		var raw = JSON.stringify({"district":district_id});
+		var facility = document.querySelector('.messageCheckbox:checked').value;
+		var raw = JSON.stringify({"district":district_id, "facility":facility});
 		// create a JSON object with parameters for API call and store in a variable
+		 document.getElementById("msg2").innerHTML = facility;
+
 		var requestOptions = {
 			method: 'POST',
 			body: raw,
@@ -211,31 +213,31 @@
 				<div class="collapse" id="dashboard-collapse">
 					<fieldset id="facilitychoice">
 						<label class="container">HDB Carpark
-							<input type="radio" name="facility" value="Carpark">
+							<input class = "messageCheckbox" type="radio" name="facility" value="Carpark">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Preschool Center
-							<input type="radio" name="facility" value="Center">
+							<input class = "messageCheckbox" type="radio" name="facility" value="Center">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Hawker Centers
-							<input type="radio" name="facility" value="Hawker">
+							<input class = "messageCheckbox" type="radio" name="facility" value="Hawker">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Median Rent by Town and Flat
-							<input id="MedianRent" type="radio" name="facility" value="MedianRent">
+							<input class = "messageCheckbox" id="MedianRent" type="radio" name="facility" value="MedianRent">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Parks
-							<input type="radio" name="facility" value="Park">
+							<input class = "messageCheckbox" type="radio" name="facility" value="Park">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Renting Out Of Flats
-							<input id="RentFlat" type="radio" name="facility" value="RentFlat">
+							<input class = "messageCheckbox" id="RentFlat" type="radio" name="facility" value="RentFlat">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Resale Flat Prices
-							<input id="ResaleFlat" type="radio" name="facility" value="ResaleFlat">
+							<input class = "messageCheckbox" id="ResaleFlat" type="radio" name="facility" value="ResaleFlat">
 							<span class="checkmark"></span>
 						</label><br>
 					</fieldset>
