@@ -28,7 +28,7 @@
 		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-		var facility = ;
+		var facility = document.getElementById(fac).value;
 		var raw = JSON.stringify({"district":district_id});
 		// create a JSON object with parameters for API call and store in a variable
 		var requestOptions = {
