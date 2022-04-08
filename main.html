@@ -133,7 +133,7 @@
             		let finalData = JSON.parse(myData).result;
         		var my_obj = eval(finalData);
 			var locations = [];
-			// content to be displayed by click and location
+			console.log(my_obj);
 			for (let k = 0; k < my_obj.length; k++){
 			    var res = [];    
 			    for(var i in my_obj[k]){
@@ -148,11 +148,9 @@
 				}else if(fac == "Preschool"){
 					var res_result = getPreschool(res);
 					locations.push(res_result);
-					console.log(locations);
 				}else if(fac == "Park"){
 					var res_result = getPark(res);
 					locations.push(res_result);
-					console.log(locations);
 				}
 			}
 			// center of map shown
