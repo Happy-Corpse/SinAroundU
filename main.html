@@ -155,14 +155,14 @@
 					locations.push(res_result);
 				}
 			}
-			var html;
+			var html = ``;
 			for (var j; j < locations.length; j++){
-				console.log(html);
+				console.log(locations[j][0];
 				html = html + `<div class="h-100 p-5 text-white bg-dark rounded-3">
 				<h2>Info Here</h2>
 				<div id="msg2"> `+ locations[j][0]+ `</div>
-					</div>
-				</div>`;
+					</div>`;
+				console.log(html);
 			}
                         document.getElementById("info").innerHTML = html;
 			// center of map shown
