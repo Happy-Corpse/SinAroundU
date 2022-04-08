@@ -82,13 +82,23 @@
         }
 		function getPreschool(my_obj){
 			var res_result = [];      
-			res_result.push(parseFloat(my_obj[6]));
+			res_result.push(parseFloat(my_obj[6]))
 			res_result.push(parseFloat(my_obj[7]));
 			res = createInfo(my_obj,[6,7]);
 			var info = my_obj.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
+		function getPark(my_obj){
+			var res_result = []
+			res_result.push(parseFloat(my_obj[0]))
+			res_result.push(parseFloat(my_obj[1]));
+			res = createInfo(my_obj,[0,1]);
+			var info = my_obj.join(`<br>`);
+			res_result.splice(0, 0, info);
+			return res_result;
+        }
+
 
 
 		function createInfo(lst1,indexs){
@@ -129,7 +139,6 @@
 			    for(var i in my_obj[k]){
 					res = res.concat(Object.values(my_obj[k][i]));
 			    };
-				console.log(res);
 			    if (fac == "Hawker"){
 				    var res_result = getHawker(res);
 					locations.push(res_result);
@@ -140,11 +149,15 @@
 					var res_result = getPreschool(res);
 					locations.push(res_result);
 					console.log(locations);
+				}else if(fac == "Park"){
+					var res_result = getPark(res);
+					locations.push(res_result);
+					console.log(locations);
 				}
 			}
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 11,
+				zoom: 12,
 				center: new google.maps.LatLng(1.3521, 103.8198),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
