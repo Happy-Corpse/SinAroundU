@@ -28,9 +28,9 @@
 		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-        var facility = document.querySelector('.messageCheckbox:checked').value;
+        	var facility = document.querySelector('.messageCheckbox:checked').value;
 		var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+        	myHeaders.append("Content-Type", "application/json");
 		var raw = JSON.stringify({"district":district_id, "facility":facility});
 		console.log(raw);
 		// create a JSON object with parameters for API call and store in a variable
@@ -213,15 +213,11 @@
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Preschool Center
-							<input class = "messageCheckbox" type="radio" name="facility" value="Preschool" onclick = "callAPI()" >
+							<input class = "messageCheckbox" type="radio" name="facility" value="Center" onclick = "callAPI()" >
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Hawker Centers
 							<input class = "messageCheckbox" type="radio" name="facility" value="Hawker" checked onclick = "callAPI()">
-							<span class="checkmark"></span>
-						</label><br>
-						<label class="container">Median Rent by Town and Flat
-							<input class = "messageCheckbox" id="MedianRent" type="radio" name="facility" value="MedianRent" onclick = "callAPI()">
 							<span class="checkmark"></span>
 						</label><br>
 						<label class="container">Parks
@@ -317,7 +313,7 @@
 		// center of map shown
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 10,
-			center: new google.maps.LatLng(-33.92, 151.25),
+			center: new google.maps.LatLng(1.3521, 103.8198),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
 
