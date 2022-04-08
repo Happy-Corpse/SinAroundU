@@ -84,8 +84,8 @@
                     }
                     locations.push(res_result);
                 }
-                console.log(locations);  
-				return locations;
+              
+		    return locations;
         }
 
 		function createInfo(lst1,indexs){
@@ -118,9 +118,10 @@
 		function initMap(data,fac) {
 			// content to be displayed by click and location
 			var locations = getResult(data,fac);
+			console.log(locations);  
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 10,
+				zoom: 20,
 				center: new google.maps.LatLng(1.3521, 103.8198),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
