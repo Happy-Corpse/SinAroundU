@@ -130,7 +130,12 @@
 		async function initMap(data,fac) {
 			let myData = await data;
             		let finalData = JSON.parse(myData).result;
-        		var my_obj = eval(finalData);
+			try {
+                        	var my_obj = eval(finalData);
+                   	 }
+                	catch(err) {
+                        	document.getElementById("msg2").innerHTML = `Sorry, No `+ fac +` in this district`;
+                    }   
 			var locations = [];
 			console.log(finalData);
 			for (let k = 0; k < my_obj.length; k++){
