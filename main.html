@@ -83,7 +83,7 @@
                     locations.push(res_result);
                 }
                 console.log(locations);  
-				return locations;
+		return locations;
         }
 
 		function createInfo(lst1,indexs){
@@ -100,10 +100,10 @@
 
 
 		function toggle_district(source) {
-		checkboxes = document.getElementsByName('district');
-		for(var i=0, n=checkboxes.length;i<n;i++) {
-    		checkboxes[i].checked = source.checked;
-			}
+			checkboxes = document.getElementsByName('district');
+			for(var i=0, n=checkboxes.length;i<n;i++) {
+			checkboxes[i].checked = source.checked;
+				}
 		}
 
 		function toggle_facility(source) {
@@ -113,12 +113,13 @@
 			}
 		}
 
-		function initMap(data,fac) {
+		async function initMap(data,fac) {
 			let myData = await data;
-            let finalData = JSON.parse(myData).result;
-        	var my_obj = eval(finalData);
+            		let finalData = JSON.parse(myData).result;
+        		var my_obj = eval(finalData);
 			// content to be displayed by click and location
 			var locations = getResult(my_obj,fac);
+			console.log(locations);
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
