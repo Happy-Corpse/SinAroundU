@@ -156,13 +156,13 @@
 				}
 			}
 			var html = ``;
-			for (var j; j < locations.length; j++){
+			for (var j = 0; j < locations.length; j++){
 				console.log(locations[j][0]);
-				html = html + `<div class="h-100 p-5 text-white bg-dark rounded-3">
+				html = html + `			<div class="col-md-6">
+					<div class="h-100 p-5 text-white bg-dark rounded-3">
 				<h2>Info Here</h2>
-				<div id="msg2"> `+ locations[j][0]+ `</div>
+				<p> `+ locations[j][0]+ `<p></div>
 					</div>`;
-				console.log(html);
 			}
                         document.getElementById("info").innerHTML = html;
 			// center of map shown
