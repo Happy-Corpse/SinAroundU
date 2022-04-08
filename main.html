@@ -64,26 +64,26 @@
 		}
 		async function getResult(my_obj,fac){
 			console.log(my_obj);
-                var locations = [];
-                for (let k = 0; k < my_obj.length; k++){
-                    var res = [];    
-                    var res_result = [];      
-                    for(var i in my_obj[k]){
-                        res = res.concat(Object.values(my_obj[k][i]));
-                    };
-                    if (fac == "Hawker"){
-                        res_result.push(parseFloat(res[0]));
-                        res_result.push(parseFloat(res[10]));
-                        res = createInfo(res,[0,10]);
-                        var info = res.join(`<br>`);
-                        res_result.splice(0, 0, info);
-                    }else{
-                        console.log("Not Hawker");
-                    }
-                    locations.push(res_result);
-                }
-                console.log(locations);  
-		return locations;
+			var locations = [];
+			for (let k = 0; k < my_obj.length; k++){
+			    var res = [];    
+			    var res_result = [];      
+			    for(var i in my_obj[k]){
+				res = res.concat(Object.values(my_obj[k][i]));
+			    };
+			    if (fac == "Hawker"){
+				res_result.push(parseFloat(res[0]));
+				res_result.push(parseFloat(res[10]));
+				res = createInfo(res,[0,10]);
+				var info = res.join(`<br>`);
+				res_result.splice(0, 0, info);
+			    }else{
+				console.log("Not Hawker");
+			    }
+			    locations.push(res_result);
+			}
+			console.log(locations);  
+			return locations;
         }
 
 		function createInfo(lst1,indexs){
