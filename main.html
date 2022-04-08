@@ -140,13 +140,9 @@
                         	var my_obj = eval(finalData);
                    	 }
                 	catch(err) {
-				var error = `<div class="col-md-6">
-						<div class="h-100 p-5 text-white bg-dark rounded-3">
-						<h2>Sorry Customers!</h2>
-						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>
-				</div>
-			</div>`
-                        	document.getElementById("info").innerHTML = error;
+				var error = `<h2>Sorry Customers!</h2>
+						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>`;
+                        	alert(error);
                     }   
 			var locations = [];
 			console.log(finalData);
