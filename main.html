@@ -138,7 +138,7 @@
 						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>
 				</div>
 			</div>`
-                        	document.getElementById("info").innerHTML = error;
+                        	document.getElementById("err").innerHTML = error;
                     }   
 			var locations = [];
 			console.log(finalData);
@@ -368,6 +368,7 @@
 		<div id="map"></div>
 		<div id = "info" class="row align-items-md-stretch">
 			<body onload = "defaultDistrict()">
+				<div id = "err"></div>
 		</div>
 	</div>
 </main>
