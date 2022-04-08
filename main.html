@@ -39,7 +39,7 @@
 				body: raw,
 				redirect: 'follow'
 			};
-			loadData(requestOptions, facility);
+			loadData(requestOptions,facility);
         	}
 	
 		function callAPI(){
@@ -62,16 +62,14 @@
 			};
 			loadData(requestOptions,facility);
 		}
-		async function getResult(data,fac){
-                let myData = await data;
-                let finalData = JSON.parse(myData).result;
-                var obj = eval(finalData);
+		async function getResult(my_obj,fac){
+			console.log(my_obj);
                 var locations = [];
-                for (let k = 0; k < obj.length; k++){
+                for (let k = 0; k < my_obj.length; k++){
                     var res = [];    
                     var res_result = [];      
-                    for(var i in obj[k]){
-                        res = res.concat(Object.values(obj[k][i]));
+                    for(var i in my_obj[k]){
+                        res = res.concat(Object.values(my_obj[k][i]));
                     };
                     if (fac == "Hawker"){
                         res_result.push(parseFloat(res[0]));
@@ -84,9 +82,9 @@
                     }
                     locations.push(res_result);
                 }
-                    console.log(locations);
-		    return locations;
-       	 	}
+                console.log(locations);  
+				return locations;
+        }
 
 		function createInfo(lst1,indexs){
 			indexs.sort(function(a, b) { return b - a}); 
@@ -116,12 +114,14 @@
 		}
 
 		function initMap(data,fac) {
+			let myData = await data;
+            let finalData = JSON.parse(myData).result;
+        	var my_obj = eval(finalData);
 			// content to be displayed by click and location
-			var locations = getResult(data,fac);
-			console.log(locations);  
+			var locations = getResult(my_obj,fac);
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 20,
+				zoom: 10,
 				center: new google.maps.LatLng(1.3521, 103.8198),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
