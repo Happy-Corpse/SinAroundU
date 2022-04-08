@@ -82,9 +82,9 @@
         }
 		function getPreschool(my_obj){
 			var res_result = [];      
-			res_result.push(parseFloat(my_obj[0]));
-			res_result.push(parseFloat(my_obj[1]));
-			res = createInfo(my_obj,[0,1]);
+			res_result.push(parseFloat(my_obj[6]));
+			res_result.push(parseFloat(my_obj[7]));
+			res = createInfo(my_obj,[6,7]);
 			var info = my_obj.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
