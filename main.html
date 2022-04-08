@@ -129,7 +129,7 @@
 			    for(var i in my_obj[k]){
 					res = res.concat(Object.values(my_obj[k][i]));
 			    };
-// 				console.log(res);
+				console.log(res);
 			    if (fac == "Hawker"){
 				    var res_result = getHawker(res);
 					locations.push(res_result);
@@ -144,7 +144,7 @@
 			}
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 15,
+				zoom: 11,
 				center: new google.maps.LatLng(1.3521, 103.8198),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
