@@ -155,7 +155,7 @@
 					locations.push(res_result);
 				}
 			}
-			var html = ``;
+/* 			var html = ``;
 			for(let i = 0; i < locations.length; i++){
 				html = html+ `<div class="col-md-6">
 				<div class="h-100 p-5 text-white bg-dark rounded-3">
@@ -165,7 +165,7 @@
 			</div>`;
 			}
 
-            document.getElementById("info").innerHTML = html;
+            document.getElementById("info").innerHTML = html; */
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 12,
