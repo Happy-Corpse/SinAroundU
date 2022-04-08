@@ -28,38 +28,33 @@
 		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
 		// instantiate a headers object
 		var district_id = ReadCookie("username");
-        	var facility = document.querySelector('.messageCheckbox:checked').value;
+        var facility = document.querySelector('.messageCheckbox:checked').value;
+		var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 		var raw = JSON.stringify({"district":district_id, "facility":facility});
 		console.log(raw);
 		// create a JSON object with parameters for API call and store in a variable
-		document.getElementById("msg3").innerHTML = facility;
+		document.getElementById("msg3").innerHTML = raw;
 		var requestOptions = {
 			method: 'POST',
+			headers: myHeaders,
 			body: raw,
 			redirect: 'follow'
 		};
-
-		fetch("https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
-		.then(response => response.text())
-		.then(result => obj = JSON.parse(result).body)
-		.then(() => show(obj));
+		loadData(requestOptions);
         }
-	function show(data) {
-		console.log(data);
-                let tab = 
-                    `<tr>
-                        <th>district_id</th>
-
-                    </tr>`;
-                
-                // Loop to access all rows 
-                 
-                    tab += `<tr> 
-                <td>${data} </td>`
-
-                // Setting innerHTML as tab variable
-                document.getElementById("msg2").innerHTML = tab;
+		async function getResult(data){
+                let myData = await data;
+                let finalData = JSON.parse(myData);
+                console.log(finalData);
+                document.getElementById("msg2").innerHTML = finalData.result;
             }
+
+		async function loadData(requestOptions){
+			fetch("https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+			.then(response => obj = response.text())
+			.then(result => getResult(obj));
+		}
     </script>
 </head>
 
