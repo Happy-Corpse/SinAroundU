@@ -136,7 +136,6 @@
                         	alert(error);
                     }   
 			var locations = [];
-			console.log(finalData);
 			for (let k = 0; k < my_obj.length; k++){
 			    var res = [];    
 			    for(var i in my_obj[k]){
@@ -157,10 +156,11 @@
 				}
 			}
 			var html;
-			for (var i; i < locations.length; i++){
+			for (var j; j < locations.length; j++){
+				console.log(html);
 				html = html + `<div class="h-100 p-5 text-white bg-dark rounded-3">
 				<h2>Info Here</h2>
-				<div id="msg2"> `+ res_result[0]+ `</div>
+				<div id="msg2"> `+ locations[j][0]+ `</div>
 					</div>
 				</div>`;
 			}
