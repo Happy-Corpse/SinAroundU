@@ -32,7 +32,6 @@
 			var raw = JSON.stringify({"district":district_id, "facility":facility});
 			console.log(raw);
 			// create a JSON object with parameters for API call and store in a variable
-			document.getElementById("msg3").innerHTML = raw;
 			var requestOptions = {
 				method: 'POST',
 				headers: myHeaders,
@@ -53,7 +52,6 @@
 			var raw = JSON.stringify({"district":new_id, "facility":facility});
 			console.log(raw);
 			// create a JSON object with parameters for API call and store in a variable
-			document.getElementById("msg3").innerHTML = raw;
 			var requestOptions = {
 				method: 'POST',
 				headers: myHeaders,
@@ -134,7 +132,13 @@
                         	var my_obj = eval(finalData);
                    	 }
                 	catch(err) {
-                        	document.getElementById("msg2").innerHTML = `Sorry, No `+ fac +` in this district`;
+				var error = `<div class="col-md-6">
+						<div class="h-100 p-5 text-white bg-dark rounded-3">
+						<h2>Sorry Customers!</h2>
+						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>
+				</div>
+			</div>`
+                        	document.getElementById("info").innerHTML = error;
                     }   
 			var locations = [];
 			console.log(finalData);
@@ -363,35 +367,7 @@
 	<div id="maindata">
 		<div id="map"></div>
 		<div id = "info" class="row align-items-md-stretch">
-			<div class="col-md-6">
-				<div class="h-100 p-5 text-white bg-dark rounded-3">
-					<h2>Change the background</h2>
-					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
-						Then, mix and match with additional component themes and more.</p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="h-100 p-5 text-white bg-dark rounded-3">
-					<h2>Change the background</h2>
-					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
-						Then, mix and match with additional component themes and more.</p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="h-100 p-5 text-white bg-dark rounded-3">
-					<h2>Change the background</h2>
-					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
-						Then, mix and match with additional component themes and more.</p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="h-100 p-5 text-white bg-dark rounded-3">
-					<h2>Test 1</h2>
-						<body onload="defaultDistrict()">
-						<div id="msg2">Pending  Test 1. . .</div>
-						<div id="msg3">Pending  Test 2. . .</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </main>
