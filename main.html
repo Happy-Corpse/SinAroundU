@@ -97,7 +97,7 @@
 		function toggle_district(source) {
 			checkboxes = document.getElementsByName('district');
 			for(var i=0, n=checkboxes.length;i<n;i++) {
-			checkboxes[i].checked = source.checked;
+				checkboxes[i].checked = source.checked;
 				}
 		}
 
@@ -119,7 +119,7 @@
 			    for(var i in my_obj[k]){
 					res = res.concat(Object.values(my_obj[k][i]));
 			    };
-				console.log(res);
+// 				console.log(res);
 			    if (fac == "Hawker"){
 				    var res_result = getHawker(res);
 					locations.push(res_result);
