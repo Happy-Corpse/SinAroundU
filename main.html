@@ -62,27 +62,16 @@
 			};
 			loadData(requestOptions,facility);
 		}
-		async function getResult(my_obj,fac){
-			console.log(my_obj);
+		function getHawker(my_obj){
 			var locations = [];
-			for (let k = 0; k < my_obj.length; k++){
-			    var res = [];    
-			    var res_result = [];      
-			    for(var i in my_obj[k]){
-				res = res.concat(Object.values(my_obj[k][i]));
-			    };
-			    if (fac == "Hawker"){
-				res_result.push(parseFloat(res[0]));
-				res_result.push(parseFloat(res[10]));
-				res = createInfo(res,[0,10]);
-				var info = res.join(`<br>`);
-				res_result.splice(0, 0, info);
-			    }else{
-				console.log("Not Hawker");
-			    }
-			    locations.push(res_result);
-			}
-			console.log(locations);  
+			var res_result = [];      
+			res_result.push(parseFloat(my_obj[0]));
+			res_result.push(parseFloat(my_obj[10]));
+			res = createInfo(my_obj,[0,10]);
+			var info = my_obj.join(`<br>`);
+			res_result.splice(0, 0, info);
+			locations.push(res_result);
+			console.log(locations);
 			return locations;
         }
 
@@ -118,8 +107,17 @@
             		let finalData = JSON.parse(myData).result;
         		var my_obj = eval(finalData);
 			// content to be displayed by click and location
-			var locations = getResult(my_obj,fac);
-			console.log(locations);
+			for (let k = 0; k < my_obj.length; k++){
+			    var res = [];    
+			    for(var i in my_obj[k]){
+					res = res.concat(Object.values(my_obj[k][i]));
+			    };
+				console.log(res);
+			    if (fac == "Hawker"){
+					var locations = getHawker(res);
+					console.log(locations);
+				}
+			}
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
