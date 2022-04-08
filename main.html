@@ -62,19 +62,11 @@
 		}
 		function getHawker(my_obj){
 			var res_result = [];      
-			var html = document.getElementById("info");
 			res_result.push(parseFloat(my_obj[0]));
 			res_result.push(parseFloat(my_obj[10]));
 			var res = createInfo(my_obj,[0,10]);
 			var info = res.join(`<br>`);
 			res_result.splice(0, 0, info);
-			var html = html + `<div class="col-md-6">
-						<div class="h-100 p-5 text-white bg-dark rounded-3">
-						<h2>Info Here</h2>
-						<div id="msg2"> `+ res_result[0]+ `</div>
-				</div>
-			</div>`;
-                        document.getElementById("info").innerHTML = html;
 			return res_result;
         }
 		function getCarpark(my_obj){
@@ -140,8 +132,7 @@
                         	var my_obj = eval(finalData);
                    	 }
                 	catch(err) {
-				var error = `<h2>Sorry Customers!</h2>
-						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>`;
+				var error = `Sorry Customers! We cannot find `+ fac+ ` in this distrct`;
                         	alert(error);
                     }   
 			var locations = [];
@@ -165,6 +156,15 @@
 					locations.push(res_result);
 				}
 			}
+			var html;
+			for (var i, i < locations.length, i++){
+				html = html + `<div class="h-100 p-5 text-white bg-dark rounded-3">
+				<h2>Info Here</h2>
+				<div id="msg2"> `+ res_result[0]+ `</div>
+					</div>
+				</div>`;
+			}
+                        document.getElementById("info").innerHTML = html;
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 12,
