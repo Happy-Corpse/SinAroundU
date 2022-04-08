@@ -64,17 +64,24 @@
 			var res_result = [];      
 			res_result.push(parseFloat(my_obj[0]));
 			res_result.push(parseFloat(my_obj[10]));
-			res = createInfo(my_obj,[0,10]);
-			var info = my_obj.join(`<br>`);
+			var res = createInfo(my_obj,[0,10]);
+			var info = res.join(`<br>`);
 			res_result.splice(0, 0, info);
+			var html = `<div class="col-md-6">
+						<div class="h-100 p-5 text-white bg-dark rounded-3">
+						<h2>Info Here</h2>
+						<div id="msg2"> We cannot find `+ res_result[0]+ ` in this distrct</div>
+				</div>
+			</div>`
+                        document.getElementById("info").innerHTML = html;
 			return res_result;
         }
 		function getCarpark(my_obj){
 			var res_result = [];      
 			res_result.push(parseFloat(my_obj[6]));
 			res_result.push(parseFloat(my_obj[7]));
-			res = createInfo(my_obj,[6,7]);
-			var info = my_obj.join(`<br>`);
+			var res = createInfo(my_obj,[6,7]);
+			var info = res.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -82,8 +89,8 @@
 			var res_result = [];      
 			res_result.push(parseFloat(my_obj[8]))
 			res_result.push(parseFloat(my_obj[9]));
-			res = createInfo(my_obj,[8,9]);
-			var info = my_obj.join(`<br>`);
+			var res = createInfo(my_obj,[8,9]);
+			var info = res.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -91,8 +98,8 @@
 			var res_result = []
 			res_result.push(parseFloat(my_obj[1]))
 			res_result.push(parseFloat(my_obj[0]));
-			res = createInfo(my_obj,[0,1]);
-			var info = my_obj.join(`<br>`);
+			var res = createInfo(my_obj,[0,1]);
+			var info = res.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -138,7 +145,7 @@
 						<div id="msg2"> We cannot find `+ fac+ ` in this distrct</div>
 				</div>
 			</div>`
-                        	document.getElementById("err").innerHTML = error;
+                        	document.getElementById("info").innerHTML = error;
                     }   
 			var locations = [];
 			console.log(finalData);
@@ -368,7 +375,6 @@
 		<div id="map"></div>
 		<div id = "info" class="row align-items-md-stretch">
 			<body onload = "defaultDistrict()">
-				<div id = "err"></div>
 		</div>
 	</div>
 </main>
