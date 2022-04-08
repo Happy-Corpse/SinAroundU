@@ -69,6 +69,7 @@
 			res = createInfo(my_obj,[0,10]);
 			var info = my_obj.join(`<br>`);
 			res_result.splice(0, 0, info);
+			showHawker(my_obj);
 			return res_result;
         }
 		function getCarpark(my_obj){
@@ -99,7 +100,17 @@
 			return res_result;
         }
 
-
+		function showHawker(my_obj){
+			var html = document.getElementById("info").innerHTML;
+			html = html + `<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>`${my_obj[2]}`</h2>
+					<p>No of Food Stalls: `${my_obj[3]}`<br>
+				</p>	
+				</div>
+			</div> `;
+			document.getElementById("info").innerHTML = html;
+		}
 
 		function createInfo(lst1,indexs){
 			indexs.sort(function(a, b) { return b - a}); 
@@ -140,8 +151,8 @@
 					res = res.concat(Object.values(my_obj[k][i]));
 			    };
 			    if (fac == "Hawker"){
-				    var res_result = getHawker(res);
-					locations.push(res_result);
+				        var res_result = getHawker(res);
+				        locations.push(res_result);
 				}else if(fac == "Carpark"){
 					var res_result = getCarpark(res);
 					locations.push(res_result);
@@ -358,7 +369,7 @@
 	</div>
 	<div id="maindata">
 		<div id="map"></div>
-		<div class="row align-items-md-stretch">
+		<div id = "info" class="row align-items-md-stretch">
 			<div class="col-md-6">
 				<div class="h-100 p-5 text-white bg-dark rounded-3">
 					<h2>Change the background</h2>
