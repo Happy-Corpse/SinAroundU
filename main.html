@@ -8,61 +8,60 @@
 	<link rel="stylesheet" href="css/styles.css"/>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript">
-        function ReadCookie(cookie_name){
-            if (document.cookie.length > 0){
-                cookie_start = document.cookie.indexOf(cookie_name + "=")
-                if (cookie_start != -1){
-                    cookie_start = cookie_start + cookie_name.length + 1
-                    cookie_end = document.cookie.indexOf(";", cookie_start)
-                    if (cookie_end == -1) {
-                        cookie_end = document.cookie.length
-                    }
-                    return unescape(document.cookie.substring(cookie_start,cookie_end))
-                }
-            }
-            return ""
-        }
+		function ReadCookie(cookie_name){
+		    if (document.cookie.length > 0){
+			cookie_start = document.cookie.indexOf(cookie_name + "=")
+			if (cookie_start != -1){
+			    cookie_start = cookie_start + cookie_name.length + 1
+			    cookie_end = document.cookie.indexOf(";", cookie_start)
+			    if (cookie_end == -1) {
+				cookie_end = document.cookie.length
+			    }
+			    return unescape(document.cookie.substring(cookie_start,cookie_end))
+			}
+		    }
+		    return ""
+		}
 
 		function defaultDistrict(){
 			var district_id = ReadCookie("username");
-			document.getElementById(district_id).checked = True; 
+			document.getElementById(district_id).checked = 'True'; 
 			var facility = document.querySelector('.messageCheckbox:checked').value;
 			var myHeaders = new Headers();
-        	myHeaders.append("Content-Type", "application/json");
+        		myHeaders.append("Content-Type", "application/json");
 			var raw = JSON.stringify({"district":district_id, "facility":facility});
 			console.log(raw);
 			// create a JSON object with parameters for API call and store in a variable
 			document.getElementById("msg3").innerHTML = raw;
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-		loadData(requestOptions);
-        }
+			var requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: raw,
+				redirect: 'follow'
+			};
+			loadData(requestOptions);
+        	}
 	
-
-	function callAPI(){
-		var obj;
-		const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
-		var new_id = document.querySelector('.number:checked').value;
-		console.log(new_id);
-        	var facility = document.querySelector('.messageCheckbox:checked').value;
-		var myHeaders = new Headers();
-        	myHeaders.append("Content-Type", "application/json");
-		var raw = JSON.stringify({"district":new_id, "facility":facility});
-		console.log(raw);
-		// create a JSON object with parameters for API call and store in a variable
-		document.getElementById("msg3").innerHTML = raw;
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-		loadData(requestOptions);
-        }
+		function callAPI(){
+			var obj;
+			const api_url =  "https://01ozkfi1g8.execute-api.us-east-1.amazonaws.com/dev";
+			var new_id = document.querySelector('.number:checked').value;
+			console.log(new_id);
+			var facility = document.querySelector('.messageCheckbox:checked').value;
+			var myHeaders = new Headers();
+			myHeaders.append("Content-Type", "application/json");
+			var raw = JSON.stringify({"district":new_id, "facility":facility});
+			console.log(raw);
+			// create a JSON object with parameters for API call and store in a variable
+			document.getElementById("msg3").innerHTML = raw;
+			var requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: raw,
+				redirect: 'follow'
+			};
+			loadData(requestOptions);
+		}
 		async function getResult(data){
                 let myData = await data;
                 let finalData = JSON.parse(myData);
