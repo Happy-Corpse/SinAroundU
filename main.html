@@ -63,16 +63,13 @@
 			loadData(requestOptions,facility);
 		}
 		function getHawker(my_obj){
-			var locations = [];
 			var res_result = [];      
 			res_result.push(parseFloat(my_obj[0]));
 			res_result.push(parseFloat(my_obj[10]));
 			res = createInfo(my_obj,[0,10]);
 			var info = my_obj.join(`<br>`);
 			res_result.splice(0, 0, info);
-			locations.push(res_result);
-			console.log(locations);
-			return locations;
+			return res_result;
         }
 
 		function createInfo(lst1,indexs){
@@ -106,6 +103,7 @@
 			let myData = await data;
             		let finalData = JSON.parse(myData).result;
         		var my_obj = eval(finalData);
+			var locations = [];
 			// content to be displayed by click and location
 			for (let k = 0; k < my_obj.length; k++){
 			    var res = [];    
@@ -114,13 +112,14 @@
 			    };
 				console.log(res);
 			    if (fac == "Hawker"){
-					var locations = getHawker(res);
+				    var res_result = getHawker(res);
+					locations.push(res_result);
 					console.log(locations);
 				}
 			}
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 10,
+				zoom: 15,
 				center: new google.maps.LatLng(1.3521, 103.8198),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
