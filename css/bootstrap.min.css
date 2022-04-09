@@ -23,7 +23,7 @@
 .row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));padding-bottom:calc(var(--bs-gutter-x) * .5);}
 .row>*{flex-shrink:0;width:100%;max-width:100%;padding-left:calc(var(--bs-gutter-x) * .5);padding-top:calc(var(--bs-gutter-x) * .5);margin-top:var(--bs-gutter-y)}
 .align-items-md-stretch{align-items:stretch!important}
-.col-md-6{flex:0 0 auto;width:540px;}
+.col-md-6{flex:0 0 auto;width:520px;}
 .h-100:hover{background-color:ivory;}
 .h-100{height:150px;}
 .p-5{padding:20px;}
