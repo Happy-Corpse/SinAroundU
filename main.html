@@ -127,7 +127,7 @@
 
 		async function initMap(data,fac) {
 			let myData = await data;
-            		let finalData = JSON.parse(myData).result;
+            let finalData = JSON.parse(myData).result;
 			try {
                         	var my_obj = eval(finalData);
                    	 }
@@ -155,16 +155,16 @@
 					locations.push(res_result);
 				}
 			}
-			var html = ``;
-			for (var j = 0; j < locations.length; j++){
-				console.log(locations[j][0]);
-				html = html + `			<div class="col-md-6">
-					<div class="h-100 p-5 text-white bg-dark rounded-3">
-				<h2>Info Here</h2>
-				<p> `+ locations[j][0]+ `<p></div>
-					</div>`;
+			var html = "";
+			for (var i = 0; i < locations.length; i++){
+				html = html + ` <div class="col-md-6">
+									<div class="h-100 p-5 text-white bg-dark rounded-3">
+										<p style = "font-size:14px;">`+ locations[i][0]+`</p>
+									</div>
+								</div>`;
 			}
-                        document.getElementById("info").innerHTML = html;
+			console.log(html);
+            document.getElementById("info").innerHTML = html;
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 12,
@@ -370,8 +370,28 @@
 	</div>
 	<div id="maindata">
 		<div id="map"></div>
-		<div id = "info" class="row align-items-md-stretch">
-			<body onload = "defaultDistrict()">
+		<div class="row align-items-md-stretch" id = "info">
+			<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>Change the background</h2>
+					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+						Then, mix and match with additional component themes and more.</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>Change the background</h2>
+					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+						Then, mix and match with additional component themes and more.</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>Change the background</h2>
+					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+						Then, mix and match with additional component themes and more.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>
