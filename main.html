@@ -60,12 +60,33 @@
 			};
 			loadData(requestOptions,facility);
 		}
+		function combineList(lst1, lst2){
+			var result = [];
+			for(var i = 0; i < lst1.length; i++){
+				var element = lst1[i] + ": " + lst2[i];
+				result.push(element);
+			}
+			return result;
+		}
 		function getHawker(my_obj){
 			var res_result = [];      
 			res_result.push(parseFloat(my_obj[0]));
 			res_result.push(parseFloat(my_obj[10]));
 			var res = createInfo(my_obj,[0,10]);
-			var info = res.join(`<br>`);
+			var name = [
+						"q2 cleaning start date",
+						"q3 cleaning end date",
+						"name",
+						"q3 cleaning start date",
+						"no of food stalls",
+						"q4 cleaning end date",
+						"q1 cleaning start date",
+						"q1 cleaning end date",
+						"q4 cleaning start date",
+						"q2 cleaning end date"
+					];
+			var result = combineList(name,res);
+			var info = result.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -74,7 +95,16 @@
 			res_result.push(parseFloat(my_obj[6]));
 			res_result.push(parseFloat(my_obj[7]));
 			var res = createInfo(my_obj,[6,7]);
-			var info = res.join(`<br>`);
+			var name = [
+						"car park type",
+						"free parking",
+						"type of parking system",
+						"short term parking",
+						"address",
+						"nightparking",
+					];
+			var result = combineList(name,res);
+			var info = result.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -83,7 +113,19 @@
 			res_result.push(parseFloat(my_obj[8]))
 			res_result.push(parseFloat(my_obj[9]));
 			var res = createInfo(my_obj,[8,9]);
-			var info = res.join(`<br>`);
+			var name = [
+						"postal code",
+						"government subsidy",
+						"centre name",
+						"second languages offered",
+						"food offered",
+						"centre email address",
+						"district",
+						"weekday full day",
+						"centre website"
+					];
+			var result = combineList(name,res);
+			var info = result.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -92,7 +134,12 @@
 			res_result.push(parseFloat(my_obj[1]))
 			res_result.push(parseFloat(my_obj[0]));
 			var res = createInfo(my_obj,[0,1]);
-			var info = res.join(`<br>`);
+			var name = [
+						"name",
+						"park id"
+					];
+			var result = combineList(name,res);
+			var info = result.join(`<br>`);
 			res_result.splice(0, 0, info);
 			return res_result;
         }
@@ -159,12 +206,12 @@
 			for (var i = 0; i < locations.length; i++){
 				html = html + ` <div class="col-md-6">
 									<div class="h-100 p-5 text-white bg-dark rounded-3">
-										<p style = "font-size:14px;">`+ locations[i][0]+`</p>
+										<p style = "font-size:13px;">`+ locations[i][0]+`</p>
 									</div>
 								</div>`;
 			}
 			console.log(html);
-            document.getElementById("info").innerHTML = html;
+            		document.getElementById("info").innerHTML = html;
 			// center of map shown
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 12,
