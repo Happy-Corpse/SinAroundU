@@ -173,15 +173,21 @@
 		}
 
 		async function initMap(data,fac) {
+			var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 12,
+			center: new google.maps.LatLng(1.3521, 103.8198),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+
 			let myData = await data;
-            let finalData = JSON.parse(myData).result;
+            		let finalData = JSON.parse(myData).result;
 			try {
                         	var my_obj = eval(finalData);
                    	 }
                 	catch(err) {
 				var error = `Sorry Customers! We cannot find `+ fac+ ` in this distrct`;
                         	alert(error);
-                    }   
+                   	 }   
 			var locations = [];
 			for (let k = 0; k < my_obj.length; k++){
 			    var res = [];    
@@ -213,11 +219,6 @@
 			console.log(html);
             		document.getElementById("info").innerHTML = html;
 			// center of map shown
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 12,
-				center: new google.maps.LatLng(1.3521, 103.8198),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			});
 
 			var infowindow = new google.maps.InfoWindow();
 			var marker, i;
