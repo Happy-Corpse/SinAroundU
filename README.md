@@ -29,6 +29,6 @@ Instructions for Application Deployment
 	* Enable CORS
 	* Deploy API
 	* Set the method requests status to be 200 if lambda function is correctly executed.
-5. Add IAM policy to lambda functions for I/O operations. 
+5. Add IAM policy to lambda functions for I/O operations. In the configuration part of a lambda function, click on the permission and then click into the IAM management console. Then, we can add inline policy to the lambda function. The policies for LoadData function and SinAroundU function are stored in LoadDataPolicy.json and SinAroundUPolicy.json
 6. Build tables in DynamoDB for each dataset using `district id` as partition key and `facility` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py; 
 
