@@ -3,20 +3,20 @@ For better life in Singapore
 
 ### Code
 #### FrontEnd Files
-|--index.html<br>
-|--about-us.html<br>
-|--main.html<br>
-|--css/<br>
-|--img/<br>
-|--js/<br>
-|--echarts/
+|-- index.html<br>
+|-- about-us.html<br>
+|-- main.html<br>
+|-- css/<br>
+|-- img/<br>
+|-- js/<br>
+|-- echarts/
 #### BackEnd Files        
-|--LoadData.py<br>
-|--LoadDataDBPolicy.json<br>
-|--LoadDataS3Policy.json<br>
-|--SinAroundU.py<br>
-|--SinAroundUDBPolicy.json
-|--SinAroundUS3Policy.json<br>
+|-- LoadData.py<br>
+|-- LoadDataDBPolicy.json<br>
+|-- LoadDataS3Policy.json<br>
+|-- SinAroundU.py<br>
+|-- SinAroundUDBPolicy.json
+|-- SinAroundUS3Policy.json<br>
 
 ### Instructions for Application Deployment
 1. Deploy frontend html pages, css and js customization and image/video files using AWS Amplify service
