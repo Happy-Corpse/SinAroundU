@@ -28,5 +28,5 @@ Instructions for Application Deployment
 	* Enable CORS
 	* Deploy API
 5. Add IAM policy to lambda functions for I/O operations. 
-6. Build tables in DynamoDB for each dataset using `district id` as partition key and `object id` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py; 
+6. Build tables in DynamoDB for each dataset using `district id` as partition key and `facility` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py; 
 7. 
