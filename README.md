@@ -18,3 +18,15 @@ LoadData.py<br>
 lib/<br>
 AWSDataWrangler-Python38
 
+Instructions for Application Deployment
+
+1. Deploy frontend html pages, css and js customization and image/video files using AWS Amplify service
+2. Create S3 buckets for image/video and data storage, then upload required files; 
+3. Construct and deploy Lambda functions SinAroundU.py and LoadData.py on AWS Lambda service; 
+4. Create a RESTful API on AWS API Gateway
+	* Create POST methods for our lambda functions
+	* Enable CORS
+	* Deploy API
+5. Add IAM policy to lambda functions for I/O operations. 
+6. Build tables in DynamoDB for each dataset using `district id` as partition key and `object id` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py; 
+7. 
