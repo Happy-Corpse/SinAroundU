@@ -25,8 +25,10 @@ Instructions for Application Deployment
 3. Construct and deploy Lambda functions SinAroundU.py and LoadData.py on AWS Lambda service; 
 4. Create a RESTful API on AWS API Gateway
 	* Create POST methods for our lambda functions
+	* Choose Lambda Function for integration type
 	* Enable CORS
 	* Deploy API
+	* Set the method requests status to be 200 if lambda function is correctly executed.
 5. Add IAM policy to lambda functions for I/O operations. 
 6. Build tables in DynamoDB for each dataset using `district id` as partition key and `facility` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py; 
 
