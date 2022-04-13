@@ -33,12 +33,15 @@ For better life in Singapore
 
 ### Web UI
 Home page: Each district in the map is a button, connecting to main.html and showing facility information in the same district.
+
 ![image](https://user-images.githubusercontent.com/76780790/163177294-f9a63508-079e-4d4f-928c-0355349868f4.png)
 
 Map and information for facilities in each district:
+
 ![image](https://user-images.githubusercontent.com/76780790/163177477-d4f58689-3ade-4ed5-81cb-c165d8a3c92c.png)
 
-Flat rent price trend char
+Flat rent price trend chart:
+
 ![image](https://user-images.githubusercontent.com/76780790/163177515-4c30b0f7-e183-44db-929a-dd3bd6fd5bc6.png)
 
 
