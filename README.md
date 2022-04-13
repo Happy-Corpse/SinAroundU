@@ -31,6 +31,14 @@ For better life in Singapore
 5. Add IAM policy to lambda functions for I/O operations. In the configuration part of a lambda function, click on the permission and then click into the IAM management console. Then, we can add inline policy to the lambda function. The policies for LoadData function and SinAroundU function are stored in LoadDataPolicy.json and SinAroundUPolicy.json; 
 6. Build tables in DynamoDB for each dataset using `district id` as partition key and `facility` as sorted key, then load data from S3 to DynamoDB using LambdaFunction LoadData.py. 
 
+
+### AWS architecture
+
+![image](https://user-images.githubusercontent.com/76780790/163178136-70e72812-0bbc-4e6e-9730-4926c0c8f1d9.png)
+
+
+
+
 ### Web UI
 Home page: Each district in the map is a button, connecting to main.html and showing facility information in the same district.
 
